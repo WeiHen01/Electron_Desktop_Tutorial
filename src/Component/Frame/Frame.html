@@ -1,0 +1,42 @@
+<!-- View/Home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/74a2be9f6d.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    *{
+      font-family: 'Poppins';  
+    }
+</style>
+
+<body>
+    <div class="bg-gradient-to-r from-blue-900 to-red-900 flex text-white gap-2 items-center font-bold pl-2">
+        Dental Management System
+    </div>
+
+    <script>
+        const { remote } = require('electron');
+        const currentWindow = remote.getCurrentWindow();
+
+        document.getElementById('minimize-btn').addEventListener('click', () => {
+            currentWindow.minimize();
+        });
+
+        document.getElementById('maximize-btn').addEventListener('click', () => {
+            if (currentWindow.isMaximized()) {
+                currentWindow.unmaximize();
+            } else {
+                currentWindow.maximize();
+            }
+        });
+
+        document.getElementById('close-btn').addEventListener('click', () => {
+            currentWindow.close();
+        });
+    </script>
+</body>
+</html>

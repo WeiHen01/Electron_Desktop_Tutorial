@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/74a2be9f6d.js" crossorigin="anonymous"></script>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <title>Electron JS | Dental Management System</title>
+    </head>
+
+    <style>
+        *{
+            font-family: 'Poppins';
+        }
+    </style>
+    
+    <body>
+        <!--<div id="frame-container"></div>--> <!-- Container for Frame.html -->
+        <div id="header"></div>
+        <div>
+            <marquee class="bg-pink-400 text-white">Hello! Welcome to the Dental Health Monitoring System</marquee>
+            <div class="bg-gradient-to-r from-purple-900 to-red-600">
+                <div class="grid grid-cols-2 items-center ">
+                    <img src="../Images/Blood.png" className="px-3 w-[570px]" alt="welcome" />
+                    <div class="grid grid-cols-1">
+                        <p class="text-white">This website is currently under construction.</p>
+                        <p class="text-white">Please be patience while waiting.</p>
+                        <p class="text-white">We are sorry for causing inconvenience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </body>
+
+    <!-- Load Frame.html dynamically -->
+    <script>
+        fetch('../Component/Frame/Frame.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('frame-container').innerHTML = data;
+            })
+        .catch(error => console.error('Error loading Frame.html:', error));
+
+        fetch('../Component/Layout/Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading Header.html:', error));
+
+        fetch('../Component/Layout/Footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading Header.html:', error));
+    </script>
+</html>
